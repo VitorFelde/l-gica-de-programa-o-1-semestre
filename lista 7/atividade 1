@@ -1,0 +1,41 @@
+/*1) Faça um programa que leia dois números inteiros, o primeiro é o valor inicial de um contador, e
+o segundo é o valor final do contador (o valor inicial fornecido é inferior ao valor final). Usando o
+comando while, escreva na tela uma contagem que comece no primeiro número lido, escreva os
+números seguintes colocando apenas um número em cada nova linha da tela, até chegar ao valor
+final indicado.*/
+
+
+#include <stdio.h>
+
+int main () {
+
+	int vinicial, vfinal, i;
+	
+	printf ("Digite o valor inicial: ");
+	scanf ("%d", &vinicial);
+	
+	printf ("Digite o valor final (deve ser maior que o inicial.): ");
+	scanf ("%d", &vfinal); 
+
+
+	
+	if (vfinal < vinicial) {
+		printf ("O valor final deve ser maior que o inicial!");
+		return 0;
+		}
+		
+		i = vinicial;
+		
+		while (i <= vfinal) {
+		
+		printf ("%d\n", i);
+ 	
+		i++;
+	}
+	
+	
+ return 0;
+
+}
+
+
