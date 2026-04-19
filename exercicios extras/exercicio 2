@@ -1,0 +1,33 @@
+/*Faça um programa que:
+
+leia início e fim
+imprima todos os números entre eles (inclusive)*/
+
+
+#include <stdio.h>
+
+int main()
+{
+  
+ int inicio, fim, i;
+ 
+    printf ("Digite o primero número: ");
+    scanf ("%d", &inicio);
+    
+    printf ("Digite o segundo número (deve ser maior que o primeiro): ");
+    scanf ("%d", &fim);
+    
+    i = inicio;
+    
+    while (fim >= i) {
+    
+    
+    
+    printf ("%d", i);
+    
+    i++;
+
+    }
+
+    return 0;
+}
