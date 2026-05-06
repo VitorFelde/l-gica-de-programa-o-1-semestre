@@ -2,12 +2,12 @@
 respectiva posição dele nesse vetor.*/
 
 #include <stdio.h>
-#define TAM 4
+#define TAM 20
 
 int main()
     {
    
-   int vetorV[TAM], menor = 99999999999, posi = 0, cont = 0; //menor tem que ser um valor alto, para que o menor 
+   int vetorV[TAM], menor = 99999, posi = 0, cont = 0; //menor tem que ser um valor alto, para que o menor 
    //que o usuario digitar seja menor que o que tem o valor definido
    
    do {
