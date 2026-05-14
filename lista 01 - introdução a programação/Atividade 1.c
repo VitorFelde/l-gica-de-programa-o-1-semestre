@@ -1,13 +1,13 @@
 #include <stdio.h>
 
 int main () {
-//declaração de variáveis
+//declaraï¿½ï¿½o de variï¿½veis
 int valora,valorb,ressoma,ressub,resmult;
 float resdivisao;
 
 //entrada
 
-printf ("4 Operações básicas\n");
+printf ("4 Operaï¿½ï¿½es bï¿½sicas\n");
 printf ("Escreva o valor de A: ");
 scanf ("%d", &valora);
 printf ("Escreva o valor de b: ");
@@ -23,9 +23,9 @@ resdivisao = (float) valora / valorb;
 //saida
 
 printf ("soma = %d\n", ressoma);
-printf ("subtração = %d\n", ressub);
-printf ("multiplicação = %d\n", resmult);
-printf ("divisão = %f\n", resdivisao);
+printf ("subtraï¿½ï¿½o = %d\n", ressub);
+printf ("multiplicaï¿½ï¿½o = %d\n", resmult);
+printf ("divisï¿½o = %f\n", resdivisao);
 
 return 0;
 }
