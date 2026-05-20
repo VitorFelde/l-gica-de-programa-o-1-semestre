@@ -27,6 +27,8 @@ int main () {
 	
 	string1[strlen(string1) - 1] = '\0';
 	
+	strcat (string1, " "); //isso serve para concatenar o espaço
+	
 	strcat (string1, string2);
 	
 	printf ("string 3: %s", string1);	
