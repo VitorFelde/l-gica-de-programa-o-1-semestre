@@ -33,7 +33,7 @@ e) Mostrar os dados de todos os cadastros;*/
 int main () {
 
 	char opcao;
-	int n, n1, contador = 0;
+	int n, n1, contador = 0, excluido;
 
 
 	struct TPessoa {
@@ -75,8 +75,18 @@ int main () {
 					
 					cadastro[i].codigo = i+1;
 					printf("Nome: ");
-					__fpurge(stdin);
+				
+					//SUBSTUTUTO DO FPURGE: Consome o '\n' que sobrou no buffer do scanf anterior
+					//tive que pesquisar, pois estava fazendo no compilador online, que nao aceitava
+					//o __fpurge, dai usei isso
+					while (getchar() != '\n'); 
+					
 					fgets(cadastro[i].nome, 50, stdin);
+					
+					// Remove o '\n' que o fgets armazena automaticamente no fim da string
+					//mesma coisa do de cima
+					cadastro[i].nome[strcspn(cadastro[i].nome, "\n")] = '\0';
+					
 					printf("Genero: ");
 					scanf(" %c", &cadastro[i].genero);
 					printf("Peso: ");
@@ -92,7 +102,31 @@ int main () {
 				
 				case 'b':
 				
+				
+				break;
+				
 				case 'c':
+				
+				printf ("Digite o número de cadastro que quer excluir: ");
+				scanf ("%d", &excluido);
+				
+				cadastro[n].idade = 0;
+				strcpy(cadastro[excluido - 1].nome, ""); //atribuindo como é string o vazio para o nome
+				cadastro[excluido - 1].peso = 0;
+				cadastro[excluido - 1].altura = 0;
+				cadastro[excluido - 1].genero = '\0';
+				
+				printf ("Cadastro excluído\n");
+				
+				printf ("Cadastro %d agora é: ", excluido);
+				
+				printf ("Nome: %s\n", cadastro[n].nome);
+				printf("Genero: %c\n", cadastro[n].genero);
+				printf("Peso: %.2f\n", cadastro[n].peso);
+				printf ("Altura: %.2f\n", cadastro[n].altura);
+				printf ("Idade: %d\n", cadastro[n].idade);
+				
+				break;
 				
 				case 'd':
 				
@@ -128,7 +162,9 @@ int main () {
 				break;
 				case 's':
 					
+					printf ("Saindo do programa topzera...");
 					
+				break;	
 				}
 	
 					
