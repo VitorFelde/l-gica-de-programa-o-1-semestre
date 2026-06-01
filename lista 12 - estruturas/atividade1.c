@@ -32,7 +32,7 @@ e) Mostrar os dados de todos os cadastros;*/
 
 int main () {
 
-	char opcao;
+	char opcao, opcao1;
 	int n, n1, contador = 0, excluido;
 
 
@@ -42,7 +42,7 @@ int main () {
 		char nome[50];
 		float peso, altura;
 		char genero;
-	
+		
 	};
 	
 	struct TPessoa cadastro[TAM];
@@ -66,10 +66,10 @@ int main () {
 					
 				case 'a':
 				
-				contador++;
-				
 				printf ("Digite o número de alunos: ");
 				scanf ("%d", &n);
+				
+				contador = n;
 				
 				for (int i = 0; i < n; i++) {
 					
@@ -102,6 +102,83 @@ int main () {
 				
 				case 'b':
 				
+				printf ("Digite o número do cadastro que quer alterar: ");
+				scanf ("%d", &n1);
+				
+				if (n1 <= contador) {
+				
+				do {
+				
+				
+				printf ("Digite a opção que quer alterar, ou 6 para sair do programa: ");
+				printf ("\n1 - Nome\n");
+				printf ("2 - Genero\n");
+				printf ("3 - Peso\n");
+				printf ("4 - Altura\n");
+				printf ("5 - Idade\n");
+				printf ("6 - Sair da alteração de dados:\n");
+				
+				scanf (" %c", &opcao1);
+				
+				
+				switch (opcao1) {
+					
+					case '1': 
+					printf("Novo nome: ");
+					
+					while (getchar() != '\n'); 
+					fgets(cadastro[n1 - 1].nome, 50, stdin);
+					
+					cadastro[n1 - 1].nome[strcspn(cadastro[n1 - 1].nome, "\n")] = '\0';
+					break;
+					
+					case '2': 
+					
+					printf("Novo genero: ");
+					scanf(" %c", &cadastro[n1 - 1].genero);
+					
+					break;
+					
+					case '3':
+					
+					printf("Novo peso: ");
+					scanf("%f", &cadastro[n1 - 1].peso);
+					
+					break;
+					
+					case '4':
+					
+					printf ("Nova altura: ");
+					scanf ("%f", &cadastro[n1- 1].altura);
+					
+					break;
+					
+					case '5':
+					
+					printf ("Nova idade: ");
+					scanf ("%d", &cadastro[n1 - 1].idade);
+					
+					break;
+					
+					
+					case '6':
+					
+					printf ("\nSaindo da alteração de dados, e retornando ao menuzão legal\n");
+					
+					break;
+					
+					default:
+					
+					printf ("Digite uma das opções validas!");
+					
+					}
+				}
+			
+				while (opcao1 != '6');
+			
+				}
+				else 
+					printf ("Número de cadastro não encontrado! Digite um válido");
 				
 				break;
 				
@@ -110,22 +187,28 @@ int main () {
 				printf ("Digite o número de cadastro que quer excluir: ");
 				scanf ("%d", &excluido);
 				
-				cadastro[n].idade = 0;
-				strcpy(cadastro[excluido - 1].nome, ""); //atribuindo como é string o vazio para o nome
+				if (excluido > 0 && excluido <= contador) {
+				
+				cadastro[excluido].idade = 0;
+				strcpy(cadastro[excluido - 1].nome, " "); //atribuindo como é string o vazio para o nome
 				cadastro[excluido - 1].peso = 0;
 				cadastro[excluido - 1].altura = 0;
 				cadastro[excluido - 1].genero = '\0';
 				
 				printf ("Cadastro excluído\n");
 				
-				printf ("Cadastro %d agora é: ", excluido);
+				printf ("Cadastro %d agora é: \n", excluido);
 				
 				printf ("Nome: %s\n", cadastro[n].nome);
 				printf("Genero: %c\n", cadastro[n].genero);
 				printf("Peso: %.2f\n", cadastro[n].peso);
 				printf ("Altura: %.2f\n", cadastro[n].altura);
 				printf ("Idade: %d\n", cadastro[n].idade);
-				
+			}
+			
+			else {
+				printf ("\nNúmero de cadastro não encontrado\n");
+			}
 				break;
 				
 				case 'd':
@@ -134,16 +217,17 @@ int main () {
 				scanf ("%d", &n1);
 				
 				if (contador > 0) {
-					printf("\n%s", cadastro[n - 1].nome);
-					printf (" %c\n", cadastro[n - 1].genero);
-					printf ("%f\n", cadastro[n - 1].peso);
-					printf ("%f\n", cadastro[n - 1].altura);
-					printf ("%d\n", cadastro[n - 1].idade);
+					printf("\n%s\n", cadastro[n1 - 1].nome);
+					printf (" %c\n", cadastro[n1 - 1].genero);
+					printf ("%.2f\n", cadastro[n1 - 1].peso);
+					printf ("%.2f\n", cadastro[n1 - 1].altura);
+					printf ("%d\n", cadastro[n1 - 1].idade);
 				}
 				
 				
-				else 
-					printf ("Numero de cadastro não encontrado\n");
+				else {
+					printf ("\nNumero de cadastro não encontrado\n");
+				}
 				
 				break;
 				
@@ -151,11 +235,11 @@ int main () {
 				
 				for (int i = 0; i < n; i++) {
 					
-					printf("\n%s", cadastro[i].nome);
-					printf ("%c\n", cadastro[i].genero);
-					printf ("%f\n", cadastro[i].peso);
-					printf ("%f\n", cadastro[i].altura);
-					printf ("%d\n", cadastro[i].idade);
+					printf("\nNome: %s\n", cadastro[i].nome);
+					printf ("Genero: %c\n", cadastro[i].genero);
+					printf ("Peso: %.2f\n", cadastro[i].peso);
+					printf ("Altura: %.2f\n", cadastro[i].altura);
+					printf ("Idade: %d\n", cadastro[i].idade);
 					
 				}
 				
