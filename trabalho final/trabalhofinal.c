@@ -40,30 +40,51 @@ podendo repeti-las até que ele deseje sair do programa*/
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
+#include <stdio_ext.h>
 
-#define TAM 1000
+#define TAM 10
 
 	struct TFuncionario {
 		
 		
 	char nome[50];
-	int n, graudeestudo, linguas, cargoocupa;
+	int n, graudeestudo, qtdlinguas, cargoocupa;
 	float indiceprodutividade, salario;
 		
 	};
 	
 	struct TFuncionario cadastro[TAM];
 	
-	int cadastrar (struct TFuncionario cadastro[], int numerofuncionarios) {
+	void cadastrar (struct TFuncionario cadastro[], int numerofuncionarios) {
 	
-	printf ("Digite o numero de funcionarios que tem na firma top: ");
+	for (int i = 0; i < numerofuncionarios; i++) {
 	
 	printf ("Digite o nome do funcionário: ");
-	fgets (cadastro.[i].nome, sizeof(nome), stdin);
-	
-	
+	__fpurge(stdin);
+	fgets (cadastro[i].nome, sizeof(cadastro[i].nome), stdin);
+	printf ("Digite o grau de estudo: ");
+	scanf ("%d", &cadastro[i].graudeestudo);
+	printf ("Digite a quantidade de linguas que voce fala: ");
+	scanf ("%d", &cadastro[i].qtdlinguas);
+	printf ("Qual o nivel do cargo que você ocupa: ");
+	scanf ("%d", &cadastro[i].cargoocupa);
+	printf ("Digite seu nivel de produtividade: ");
+	scanf ("%f", &cadastro[i].indiceprodutividade);
+	}
 	
 	}
+	
+	int fatorial (struct TFuncionario cadastro[]) {
+	
+	int calculo = 0;
+	
+	for (int i = 1; i < cadastro[i].graudeestudo; i++) 
+	
+	calculo = calculo * i;
+
+	}
+	
+
 	
 	
 	int main () {
@@ -83,7 +104,7 @@ podendo repeti-las até que ele deseje sair do programa*/
 			printf ("\nc) quantidade maior que a média");
 			printf ("\nd) cadastrar tenis");
 			printf ("\ne) cadastrar tenis");
-			printf ("f) cadastrar tenis");
+			printf ("\nf) cadastrar tenis\n\n");
 		
 			scanf (" %c", &opcao);
 			
@@ -96,6 +117,8 @@ podendo repeti-las até que ele deseje sair do programa*/
 			break;	
 			
 			case 'b':
+			
+			printf ("teste %d", fatorial(cadastro));
 			
 			break;
 			
@@ -124,7 +147,4 @@ podendo repeti-las até que ele deseje sair do programa*/
 		
 	return 0;	
 		}
-	
-	
-	
 	
