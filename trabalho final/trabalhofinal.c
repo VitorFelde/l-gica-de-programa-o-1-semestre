@@ -74,16 +74,96 @@ podendo repeti-las até que ele deseje sair do programa*/
 	
 	}
 	
-	int fatorial (struct TFuncionario cadastro[]) {
+	int fatorial (int graulegal) { //colocamos um parametro, pois depois na main, vamos atribuir o valor do parametro, nao é necessario
+		//chamar a struct, fica muito mais facil fazer dessa forma
 	
-	int calculo = 0;
-	
-	for (int i = 1; i < cadastro[i].graudeestudo; i++) 
-	
-	calculo = calculo * i;
+		int calculo = 1;
+		
+		for (int i = 1; i <= graulegal; i++) 
+		
+		calculo = calculo * i;
+
+	return calculo;
 
 	}
 	
+	int linguas (int numero){
+	
+		int calculo1;
+	
+		calculo1 = pow (numero, 3);
+	
+	return calculo1;
+	
+	}
+	
+	int salariobase (int nivel) {
+		
+		float salariodebase;
+		
+		if (nivel == 1) {
+			
+			salariodebase = 1000;
+			
+			}
+			
+		else if (nivel == 2)	{
+			
+			salariodebase = 1500;
+			
+			}
+		
+		else if (nivel == 3)	{
+			
+			salariodebase = 2000;
+			
+		}
+		
+		else if (nivel == 4)	{
+			
+			salariodebase = 2500;
+			
+		}
+		
+		else if (nivel == 5)	{
+			
+			salariodebase = 3000;		
+			
+		}
+		
+		return salariodebase; 
+		
+	}
+
+	void calculofinal (struct TFuncionario cadastro[], int numerofuncionarios) {
+		
+		for  (int i = 0; i < numerofuncionarios; i++) {
+			
+			if (cadastro[i].indiceprodutividade > 0.7) {
+				
+				cadastro[i].salario = salariobase (cadastro[i].cargoocupa) + (fatorial (cadastro[i].graudeestudo) * 100) + (linguas (cadastro[i].qtdlinguas) * 100) - (salariobase (cadastro[i].cargoocupa) * (0.04 - cadastro[i].indiceprodutividade));
+				
+				}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			}
+		
+		
+		
+		
+		
+		
+		
+	}
 
 	
 	
@@ -118,7 +198,7 @@ podendo repeti-las até que ele deseje sair do programa*/
 			
 			case 'b':
 			
-			printf ("teste %d", fatorial(cadastro));
+			
 			
 			break;
 			
